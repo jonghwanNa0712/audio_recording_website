@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Audio Recording Page</title>
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: #ddd;
+      color: #777;
+      cursor: not-allowed;
+    }
+
+    #recordedAudio {
+      margin-top: 20px;
+    }
+
+    #waveformCanvas {
+      background-color: #f1f1f1;
+      margin-top: 30px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Audio Recording</h1>
+  <p id="sentenceDisplay"></p>
+  <button id="startBtn">Record Start</button>
+  <button id="stopBtn">Record Stop</button>
+  <button id="uploadBtn" disabled>Upload</button>
+  <button id="downloadBtn" disabled>Download</button>
+  <audio id="recordedAudio" controls></audio>
+  <canvas id="waveformCanvas" width="600" height="150"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>

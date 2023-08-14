@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Audio Recording and User Info</title>
+  <style>
+  
+  body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin-left: 25px;
+      margin-top: 50px;
+      text-align: left;
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 25px;
+      background-color: #fbff89;
+      margin-bottom: 20px;
+      text-align: center;
+
+      padding: 10px 2px;
+
+    }
+
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: #ddd;
+      color: #777;
+      cursor: not-allowed;
+    }
+
+    #recordedAudio {
+      margin-top: 20px;
+    }
+
+    #waveformCanvas {
+      background-color: #f1f1f1;
+      margin-top: 30px;
+      border-radius: 5px;
+    }
+  
+  #userInfoForm {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+
+  #userInfoForm label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  #userInfoForm input,
+  #userInfoForm select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  #userInfoForm button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  #userInfoForm button:hover {
+    background-color: #0056b3;
+  }
+  </style>
+</head>
+<body>
+  <h1>녹음자 정보</h1>
+  
+  <!-- User Info Form -->
+  <form id="userInfoForm">
+    <label for="name">이름:</label>
+    <input type="text" id="name" required><br>
+
+    <label for="age">나이:</label>
+    <input type="number" id="age" required><br>
+
+    <label for="gender">성별:</label>
+    <select id="gender" required>
+      <option value="male">남성</option>
+      <option value="female">여성</option>
+    </select><br>
+    <label for="phoneNumber">핸드폰 번호 ('-' 없이 숫자만 입력):</label>
+    <input type="number" id="phoneNumber" required><br>
+
+    <label for="email">이메일:</label>
+    <input type="text" id="email" required><br>
+
+    
+    <button type="button" id="saveBtn">저장</button>
+  </form>
+  <h2>녹음 문장</h2>
+  
+  <!-- Audio Recording Section -->
+  <p id="sentenceDisplay"></p>
+  <button id="startBtn">Record Start</button>
+  <button id="stopBtn">Record Stop</button>
+  <button id="uploadBtn" disabled>Upload</button>
+  <button id="downloadBtn" disabled>Download</button>
+  <audio id="recordedAudio" controls></audio>
+  <canvas id="waveformCanvas" width="600" height="150"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
